@@ -1,0 +1,15 @@
+﻿using Domain.DomainTypes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.Workflows {
+    public class CurrencyWorkflows {
+
+        public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currency) {
+            return new CurrencyWordRepresentation("");
+        }
+    }
+}

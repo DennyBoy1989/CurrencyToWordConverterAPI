@@ -19,21 +19,17 @@ public static class UnsignedIntDec2Methods {
 
     public static string GetWordRepresentationOfDigitOfTensAndDigitOfUnits(this UnsignedIntDec2 number) {
 
-
-        if (!number.HasTensDigit()) {
-            return number.GetUnitsDigit().GetUnitDigitsWordRepresentation();
-        }
-        if (number.GetTensDigit() == '1') {
+        if (number.HasTensDigit() && number.GetTensDigit() == '1') {
             return number.GetUnitsDigit().GetWordRepresentationOfNumberBetweenTenAndNineTeen();
         }
         if (number.GetUnitsDigit() == '0') {
-            return number.GetTensDigit().GetTensDigitWordRepresentation();
+            return number.GetTensDigit().GetWordRepresentationOfTensDigit();
         }
 
-        string tensDigitAsWord = number.GetTensDigit().GetTensDigitWordRepresentation();
-        string unitDigitAsWord = number.GetUnitsDigit().GetUnitDigitsWordRepresentation();
+        string tensDigitAsWord = number.GetTensDigit().GetWordRepresentationOfTensDigit().ConcatWithSequenceWhenNotEmpty("-");
+        string unitDigitAsWord = number.GetUnitsDigit().GetWordRepresentationOfUnitsDigit();
 
-        return $"{tensDigitAsWord}-{unitDigitAsWord}";
+        return $"{tensDigitAsWord}{unitDigitAsWord}";
 
     }
 }

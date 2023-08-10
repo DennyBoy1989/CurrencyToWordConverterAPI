@@ -2,8 +2,8 @@
 
 public static class DigitMethods {
 
-    public static string GetUnitDigitsWordRepresentation(this char onesDigit) {
-        return onesDigit switch {
+    public static string GetWordRepresentationOfUnitsDigit(this char unitsDigit) {
+        return unitsDigit switch {
             '0' => "zero",
             '1' => "one",
             '2' => "two",
@@ -18,8 +18,8 @@ public static class DigitMethods {
         };
     }
 
-    public static string GetWordRepresentationOfNumberBetweenTenAndNineTeen(this char onesDigit) {
-        return onesDigit switch {
+    public static string GetWordRepresentationOfNumberBetweenTenAndNineTeen(this char unitsDigit) {
+        return unitsDigit switch {
             '0' => "ten",
             '1' => "eleven",
             '2' => "twelve",
@@ -34,7 +34,7 @@ public static class DigitMethods {
         };
     }
 
-    public static string GetTensDigitWordRepresentation(this char tensDigit) {
+    public static string GetWordRepresentationOfTensDigit(this char tensDigit) {
         return tensDigit switch {
             '1' => "ten",
             '2' => "twenty",
@@ -49,7 +49,7 @@ public static class DigitMethods {
         };
     }
 
-    public static string GetHundredsDigitWordRepresentation(this char hundredDigit) {
+    public static string GetWordRepresentationOfHundredsDigit(this char hundredDigit) {
         return hundredDigit switch {
             '1' => "one hundred",
             '2' => "two hundred",

@@ -7,11 +7,11 @@ public static class DollarsMethods {
     public static string GetWordRepresentationOfDollars(this Dollars dollars) {
 
         if (dollars.Value.IntValue == 0) {
-            return $"{'0'.GetUnitDigitsWordRepresentation()} dollars";
+            return $"{'0'.GetWordRepresentationOfUnitsDigit()} dollars";
         }
 
         if (dollars.Value.IntValue == 1) {
-            return $"{'1'.GetUnitDigitsWordRepresentation()} dollar";
+            return $"{'1'.GetWordRepresentationOfUnitsDigit()} dollar";
         }
 
         if (dollars.Value.IntValue % 1000 == 0) {

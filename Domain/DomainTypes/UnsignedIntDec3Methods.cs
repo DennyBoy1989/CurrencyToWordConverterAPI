@@ -48,20 +48,16 @@ public static class UnsignedIntDec3Methods {
     public static string GetWordRepresentationOfHundredsNumber(this UnsignedIntDec3 number) {
 
         if (number.IntValue == 0) {
-            return '0'.GetUnitDigitsWordRepresentation();
-        }
-
-        if (!number.HasHundredsDigit()) {
-            return number.GetTensPart().GetWordRepresentationOfDigitOfTensAndDigitOfUnits();
+            return '0'.GetWordRepresentationOfUnitsDigit();
         }
 
         if(number.IntValue % 100 == 0) {
             return number.GetWordRepresentationOfHundredsDigit();
         }
 
-        string hundredsDigitAsWord = number.GetWordRepresentationOfHundredsDigit();
+        string hundredsDigitAsWord = number.GetWordRepresentationOfHundredsDigit().ConcatWithSequenceWhenNotEmpty(" ");
         string tensAndUnitsDigitsAsWords = number.GetTensPart().GetWordRepresentationOfDigitOfTensAndDigitOfUnits();
-        return $"{hundredsDigitAsWord} {tensAndUnitsDigitsAsWords}";
+        return $"{hundredsDigitAsWord}{tensAndUnitsDigitsAsWords}";
         
     }
 
@@ -69,7 +65,7 @@ public static class UnsignedIntDec3Methods {
 
         if (number.HasHundredsDigit()) {
             var hundredDigit = number.GetHundredsDigit();
-            return hundredDigit.GetHundredsDigitWordRepresentation();
+            return hundredDigit.GetWordRepresentationOfHundredsDigit();
         }
         else {
             return "";

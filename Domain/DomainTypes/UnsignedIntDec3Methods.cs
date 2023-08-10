@@ -32,7 +32,7 @@ public static class UnsignedIntDec3Methods {
         }
 
         var hundredsTensAndOnes = number.GetWordRepresentationOfHundredsNumber();
-        return $"{hundredsTensAndOnes} million ";
+        return $"{hundredsTensAndOnes} million";
     }
 
     public static string GetWordRepresentationOfThousandsNumber(this UnsignedIntDec3 number) {
@@ -42,7 +42,7 @@ public static class UnsignedIntDec3Methods {
         }
 
         var hundredsTensAndOnes = number.GetWordRepresentationOfHundredsNumber();
-        return $"{hundredsTensAndOnes} thousand ";
+        return $"{hundredsTensAndOnes} thousand";
     }
 
     public static string GetWordRepresentationOfHundredsNumber(this UnsignedIntDec3 number) {

@@ -19,6 +19,8 @@ namespace Domain.Test.Workflows {
 
 
         [TestCase("100", "one hundred dollars")]
+        [TestCase("1000", "one thousand dollars")]
+        [TestCase("1000000", "one million dollars")]
         [TestCase("200", "two hundred dollars")]
         [TestCase("327", "three hundred twenty-seven dollars")]
         [TestCase("611", "six hundred eleven dollars")]

@@ -6,4 +6,12 @@ public static class StringMethods {
             .Where(c => !Char.IsWhiteSpace(c))
             .ToArray());
     }
+
+
+    public static string ConcatWithSequenceWhenNotEmpty(this string value, string sequenceToConcat) {
+        if (!string.IsNullOrWhiteSpace(value)) {
+            return value + sequenceToConcat;
+        }
+        return value;
+    }
 }

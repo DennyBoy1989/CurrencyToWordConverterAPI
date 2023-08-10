@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace Domain.Workflows {
     public class CurrencyWorkflows {
 
-        public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currency) {
-            return new CurrencyWordRepresentation("");
+        public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currencyString) {
+            var currency = new Currency(currencyString);
+            return currency.GetWordRepresentation();
         }
     }
 }

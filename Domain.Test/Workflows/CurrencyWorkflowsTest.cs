@@ -17,12 +17,18 @@ namespace Domain.Test.Workflows {
             currencyWorkflows = new CurrencyWorkflows();
         }
 
+
+        [TestCase("100", "one hundred dollars")]
+        [TestCase("200", "two hundred dollars")]
+        [TestCase("327", "three hundred twenty-seven dollars")]
+        [TestCase("611", "six hundred eleven dollars")]
+        [TestCase("804", "eight hundred four dollars")]
         [TestCase("0","zero dollars")]
         [TestCase("1", "one dollar")]
         [TestCase("25,1", "twenty-five dollars and ten cents")]
         [TestCase("0,01", "zero dollars and one cent")]
         [TestCase("45100", "forty-five thousand one hundred dollars")]
-        [TestCase("999 999 999 999,99", "nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine dollars and ninety-nine cents")]
+        [TestCase("999 999 999,99", "nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine dollars and ninety-nine cents")]
         [TestCase("001,00", "one dollar")]
         public void GetCurrencyWordRepresentation_WhenGivenValidNumber_ThenReturnCurrencyWord(string input, string expectedOutput) {
             

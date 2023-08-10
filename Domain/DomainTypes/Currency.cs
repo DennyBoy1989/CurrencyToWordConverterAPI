@@ -6,4 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.DomainTypes;
 
-public record Currency(float Value);
+public class Currency {
+    public IEnumerable<char> Value { get; }
+
+    public Currency(IEnumerable<char> value) {
+        Value = value.Reverse();
+    }
+}

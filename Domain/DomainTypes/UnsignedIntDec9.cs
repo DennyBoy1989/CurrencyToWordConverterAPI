@@ -2,11 +2,11 @@
 public class UnsignedIntDec9 {
 
     public int IntValue { get;}
-    public string StringValue { get;}
+    public IEnumerable<char> Digits { get;}
 
-    private UnsignedIntDec9(int intValue, string stringValue) {
+    private UnsignedIntDec9(int intValue, IEnumerable<char> digits) {
         IntValue = intValue;
-        StringValue = stringValue;
+        Digits = digits;
     }
 
     public static UnsignedIntDec9 Of(IntString value) {
@@ -19,6 +19,6 @@ public class UnsignedIntDec9 {
             throw new ArgumentException();
         }
 
-        return new UnsignedIntDec9(value.IntValue, value.StringValue);
+        return new UnsignedIntDec9(value.IntValue, value.Digits);
     }
 }

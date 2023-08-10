@@ -3,25 +3,26 @@
 public static class UnsignedIntDec3Methods {
 
     public static char GetUnitsDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Reverse().ElementAtOrDefault(0);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(0);
     }
     public static char GetTensDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Reverse().ElementAtOrDefault(1);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(1);
     }
     public static char GetHundredsDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Reverse().ElementAtOrDefault(2);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(2);
     }
     public static bool HasUnitsDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Count() >= 1;
+        return number.Digits.Count() >= 1;
     }
     public static bool HasTensDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Count() >= 2;
+        return number.Digits.Count() >= 2;
     }
     public static bool HasHundredsDigit(this UnsignedIntDec3 number) {
-        return number.StringValue.Count() >= 3;
+        return number.Digits.Count() >= 3;
     }
+
     public static UnsignedIntDec2 GetTensPart(this UnsignedIntDec3 number) {
-        return UnsignedIntDec2.Of(IntString.Of(new string(number.StringValue.Reverse().Take(new Range(0, 2)).Reverse().ToArray())));
+        return UnsignedIntDec2.Of(IntString.Of(number.Digits.TakeCountedBackwards(new Range(0, 2))));
     }
 
     public static string GetWordRepresentationOfMillionsNumber(this UnsignedIntDec3 number) {

@@ -30,6 +30,7 @@ namespace Domain.Test.Workflows {
         [TestCase("45100", "forty-five thousand one hundred dollars")]
         [TestCase("999 999 999,99", "nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine dollars and ninety-nine cents")]
         [TestCase("001,00", "one dollar")]
+        [TestCase("101,00", "one hundred one dollars")]
         public void GetCurrencyWordRepresentation_WhenGivenValidNumber_ThenReturnCurrencyWord(string input, string expectedOutput) {
             
             var result = currencyWorkflows.GetCurrencyWordRepresentation(input);

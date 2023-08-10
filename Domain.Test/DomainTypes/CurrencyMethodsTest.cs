@@ -25,9 +25,11 @@ public class CurrencyMethodsTest {
     [TestCase("123456789", "one hundred twenty-three million four hundred fifty-six thousand seven hundred eighty-nine dollars")]
     [TestCase("110111112", "one hundred ten million one hundred eleven thousand one hundred twelve dollars")]
     [TestCase("001", "one dollar")]
-    public void GetCurrencyWordRepresentation_WhenGivenValidNumber_ThenReturnCurrencyWord(string input, string expectedOutput) {
+    [TestCase("250360", "two hundred fifty thousand three hundred sixty dollars")]
+    [TestCase("200300", "two hundred thousand three hundred dollars")]
+    public void OnIntString_GetWordRepresentationOfDollars_WhenGivenValidNumber_ThenReturnDollarValueAsString(string input, string expectedOutput) {
 
-        var result = CurrencyMethods.GetWordRepresentationOfDollars(Dollars.Of(IntString.Of(input)));
+        var result = Dollars.Of(IntString.Of(input)).GetWordRepresentationOfDollars();
 
         Assert.That(result, Is.EqualTo(expectedOutput));
     }

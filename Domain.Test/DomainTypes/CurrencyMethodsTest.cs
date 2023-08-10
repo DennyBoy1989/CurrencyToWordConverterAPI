@@ -27,7 +27,7 @@ public class CurrencyMethodsTest {
     [TestCase("001", "one dollar")]
     public void GetCurrencyWordRepresentation_WhenGivenValidNumber_ThenReturnCurrencyWord(string input, string expectedOutput) {
 
-        var result = CurrencyMethods.GetWordRepresentationOfDollars(new Currency(input));
+        var result = CurrencyMethods.GetWordRepresentationOfDollars(Dollars.Of(IntString.Of(input)));
 
         Assert.That(result, Is.EqualTo(expectedOutput));
     }

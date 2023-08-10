@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Domain.DomainTypes;
 
-public class Currency {
-    public IEnumerable<char> Value { get; }
+public record Currency(Dollars Dollars, Cents Cents) {
 
-    public Currency(IEnumerable<char> value) {
-        Value = value.Reverse();
+    public static Currency Of(string value) {
+
+        if (value.Contains(',')) {
+            var stringParts = value.Split(",");
+            return new Currency(Dollars.Of(IntString.Of(stringParts[0])), Cents.Of(IntString.Of(stringParts[1])));
+        }
+        else {
+            return new Currency(Dollars.Of(IntString.Of(value)), Cents.Of(IntString.Of("0")));
+        }
     }
 }

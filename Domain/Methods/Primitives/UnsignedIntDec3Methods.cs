@@ -5,13 +5,13 @@ namespace Domain.Methods.Primitives;
 public static class UnsignedIntDec3Methods {
 
     public static char GetUnitsDigit(this UnsignedIntDec3 number) {
-        return number.Digits.ElementAtCountedBackwardsOrDefault(0);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(0, '0');
     }
     public static char GetTensDigit(this UnsignedIntDec3 number) {
-        return number.Digits.ElementAtCountedBackwardsOrDefault(1);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(1, '0');
     }
     public static char GetHundredsDigit(this UnsignedIntDec3 number) {
-        return number.Digits.ElementAtCountedBackwardsOrDefault(2);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(2, '0');
     }
     public static bool HasUnitsDigit(this UnsignedIntDec3 number) {
         return number.Digits.Count() >= 1;
@@ -63,15 +63,10 @@ public static class UnsignedIntDec3Methods {
 
     }
 
-    public static string GetWordRepresentationOfHundredsDigit(this UnsignedIntDec3 number) {
+    private static string GetWordRepresentationOfHundredsDigit(this UnsignedIntDec3 number) {
 
-        if (number.HasHundredsDigit()) {
-            var hundredDigit = number.GetHundredsDigit();
-            return hundredDigit.GetWordRepresentationOfHundredsDigit();
-        }
-        else {
-            return "";
-        }
+        var hundredDigit = number.GetHundredsDigit();
+        return hundredDigit.GetWordRepresentationOfHundredsDigit();
     }
 
 }

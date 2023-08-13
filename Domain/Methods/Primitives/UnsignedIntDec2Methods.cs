@@ -5,10 +5,10 @@ namespace Domain.Methods.Primitives;
 public static class UnsignedIntDec2Methods {
 
     public static char GetUnitsDigit(this UnsignedIntDec2 number) {
-        return number.Digits.ElementAtCountedBackwardsOrDefault(0);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(0, '0');
     }
     public static char GetTensDigit(this UnsignedIntDec2 number) {
-        return number.Digits.ElementAtCountedBackwardsOrDefault(1);
+        return number.Digits.ElementAtCountedBackwardsOrDefault(1, '0');
     }
 
     public static bool HasUnitsDigit(this UnsignedIntDec2 number) {

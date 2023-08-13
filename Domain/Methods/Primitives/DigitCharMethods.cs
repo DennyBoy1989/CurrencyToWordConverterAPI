@@ -1,7 +1,14 @@
 ﻿namespace Domain.Methods.Primitives;
 
-public static class DigitMethods {
+/// <summary>
+/// Extensions methods for characters. The methods are focused on characters that represent digits.
+/// </summary>
+public static class DigitCharMethods {
 
+
+    /// <summary>
+    /// Returns the word representation of a units digit. If the entered char is no digit, an empty char is returned.
+    /// </summary>
     public static string GetWordRepresentationOfUnitsDigit(this char unitsDigit) {
         return unitsDigit switch {
             '0' => "zero",
@@ -18,6 +25,9 @@ public static class DigitMethods {
         };
     }
 
+    /// <summary>
+    /// Interpretes the given digit character as the units digit of a numbe between 10 and 19 and returns the respective word representation as string. If the entered char is no digit, an empty char is returned.
+    /// </summary>
     public static string GetWordRepresentationOfNumberBetweenTenAndNineTeen(this char unitsDigit) {
         return unitsDigit switch {
             '0' => "ten",
@@ -34,6 +44,9 @@ public static class DigitMethods {
         };
     }
 
+    /// <summary>
+    /// Returns the word representation of a tens digit. If the entered char is no digit, an empty char is returned.
+    /// </summary>
     public static string GetWordRepresentationOfTensDigit(this char tensDigit) {
         return tensDigit switch {
             '1' => "ten",
@@ -49,18 +62,13 @@ public static class DigitMethods {
         };
     }
 
-    public static string GetWordRepresentationOfHundredsDigit(this char hundredDigit) {
-        return hundredDigit switch {
-            '1' => "one hundred",
-            '2' => "two hundred",
-            '3' => "three hundred",
-            '4' => "four hundred",
-            '5' => "five hundred",
-            '6' => "six hundred",
-            '7' => "seven hundred",
-            '8' => "eight hundred",
-            '9' => "nine hundred",
-            _ => ""
-        };
+    /// <summary>
+    /// Returns the word representation of a hundreds digit. If the entered char is no digit, an empty char is returned.
+    /// </summary>
+    public static string GetWordRepresentationOfHundredsDigit(this char hundredsDigit) {
+        if(hundredsDigit == '0') {
+            return "";
+        }
+        return GetWordRepresentationOfUnitsDigit(hundredsDigit).ConcatWithSequenceWhenNotEmpty(" hundred");
     }
 }

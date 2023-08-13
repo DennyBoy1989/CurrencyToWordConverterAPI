@@ -2,7 +2,7 @@
 
 public static class IEnumerableMethods {
 
-    static TSource ElementAtOrDefault<TSource>(this IEnumerable<TSource> source, int index, TSource @default) {
+    public static TSource ElementAtOrDefault<TSource>(this IEnumerable<TSource> source, int index, TSource @default) {
         return index >= 0 && index < source.Count() ? source.ElementAt(index) : @default;
     }
 

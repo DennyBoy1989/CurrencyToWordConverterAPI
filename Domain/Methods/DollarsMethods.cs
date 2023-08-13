@@ -1,6 +1,7 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Domain.DomainTypes;
+using Domain.Methods.Primitives;
 
-namespace Domain.DomainTypes; 
+namespace Domain.Methods;
 
 public static class DollarsMethods {
 

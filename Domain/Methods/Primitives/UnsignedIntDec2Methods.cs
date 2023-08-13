@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.DomainTypes.Primitives;
+
+namespace Domain.Methods.Primitives;
 
 public static class UnsignedIntDec2Methods {
 
@@ -15,7 +17,6 @@ public static class UnsignedIntDec2Methods {
     public static bool HasTensDigit(this UnsignedIntDec2 number) {
         return number.Digits.Count() >= 2;
     }
-
 
     public static string GetWordRepresentationOfDigitOfTensAndDigitOfUnits(this UnsignedIntDec2 number) {
 

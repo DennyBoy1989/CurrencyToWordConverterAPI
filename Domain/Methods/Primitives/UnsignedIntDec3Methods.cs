@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.DomainTypes.Primitives;
+
+namespace Domain.Methods.Primitives;
 
 public static class UnsignedIntDec3Methods {
 
@@ -51,14 +53,14 @@ public static class UnsignedIntDec3Methods {
             return '0'.GetWordRepresentationOfUnitsDigit();
         }
 
-        if(number.IntValue % 100 == 0) {
+        if (number.IntValue % 100 == 0) {
             return number.GetWordRepresentationOfHundredsDigit();
         }
 
         string hundredsDigitAsWord = number.GetWordRepresentationOfHundredsDigit().ConcatWithSequenceWhenNotEmpty(" ");
         string tensAndUnitsDigitsAsWords = number.GetTensPart().GetWordRepresentationOfDigitOfTensAndDigitOfUnits();
         return $"{hundredsDigitAsWord}{tensAndUnitsDigitsAsWords}";
-        
+
     }
 
     public static string GetWordRepresentationOfHundredsDigit(this UnsignedIntDec3 number) {

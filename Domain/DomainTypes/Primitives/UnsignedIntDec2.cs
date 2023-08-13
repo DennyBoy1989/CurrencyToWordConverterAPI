@@ -1,9 +1,9 @@
-﻿namespace Domain.DomainTypes;
+﻿namespace Domain.DomainTypes.Primitives;
 
 public class UnsignedIntDec2 {
 
-    public int IntValue { get;}
-    public IEnumerable<char> Digits { get;}
+    public int IntValue { get; }
+    public IEnumerable<char> Digits { get; }
 
     private UnsignedIntDec2(int intValue, IEnumerable<char> digits) {
         IntValue = intValue;
@@ -12,7 +12,7 @@ public class UnsignedIntDec2 {
 
     public static UnsignedIntDec2 Of(IntString value) {
 
-        if(value.IntValue < 0) {
+        if (value.IntValue < 0) {
             throw new ArgumentException();
         }
 

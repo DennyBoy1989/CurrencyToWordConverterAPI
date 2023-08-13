@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.Methods.Primitives;
+
+namespace Domain.DomainTypes.Primitives;
 
 public class DecimalString {
 
@@ -26,6 +28,5 @@ public class DecimalString {
 
             return new DecimalString(IntString.Of(beforePointValue), IntString.Of(afterPointValue));
         }
-
     }
 }

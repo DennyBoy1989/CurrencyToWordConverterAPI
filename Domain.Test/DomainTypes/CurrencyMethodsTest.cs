@@ -1,4 +1,6 @@
 ﻿using Domain.DomainTypes;
+using Domain.DomainTypes.Primitives;
+using Domain.Methods;
 using Domain.Workflows;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Test.DomainTypes; 
+namespace Domain.Test.DomainTypes;
 
 [TestFixture]
 public class CurrencyMethodsTest {

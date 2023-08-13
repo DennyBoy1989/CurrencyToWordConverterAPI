@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.Methods.Primitives;
+
+namespace Domain.DomainTypes.Primitives;
 
 public class IntString {
 

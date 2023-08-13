@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.DomainTypes.Primitives;
+
+namespace Domain.DomainTypes;
 
 public record Currency(Dollars Dollars, Cents Cents) {
 

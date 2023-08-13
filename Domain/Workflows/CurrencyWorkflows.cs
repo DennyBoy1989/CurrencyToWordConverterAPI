@@ -1,17 +1,14 @@
 ﻿using Domain.DomainTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.DomainTypes.Primitives;
+using Domain.Methods;
 
-namespace Domain.Workflows {
-    public class CurrencyWorkflows {
+namespace Domain.Workflows;
 
-        public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currencyString) {
-            var currencyDecimalString = DecimalString.Of(currencyString, 2);
-            var currency = Currency.Of(currencyDecimalString);
-            return currency.GetWordRepresentation();
-        }
+public class CurrencyWorkflows {
+
+    public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currencyString) {
+        var currencyDecimalString = DecimalString.Of(currencyString, 2);
+        var currency = Currency.Of(currencyDecimalString);
+        return currency.GetWordRepresentation();
     }
 }

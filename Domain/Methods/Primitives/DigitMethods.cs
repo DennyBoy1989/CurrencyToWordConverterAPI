@@ -1,4 +1,4 @@
-﻿namespace Domain.DomainTypes;
+﻿namespace Domain.Methods.Primitives;
 
 public static class DigitMethods {
 

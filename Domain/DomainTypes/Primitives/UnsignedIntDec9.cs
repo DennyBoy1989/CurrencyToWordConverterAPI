@@ -1,8 +1,9 @@
-﻿namespace Domain.DomainTypes;
+﻿namespace Domain.DomainTypes.Primitives;
+
 public class UnsignedIntDec9 {
 
-    public int IntValue { get;}
-    public IEnumerable<char> Digits { get;}
+    public int IntValue { get; }
+    public IEnumerable<char> Digits { get; }
 
     private UnsignedIntDec9(int intValue, IEnumerable<char> digits) {
         IntValue = intValue;

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domain.Methods.Primitives;
 
-namespace Domain.DomainTypes; 
 public static class IEnumerableMethods {
     public static TSource? ElementAtCountedBackwardsOrDefault<TSource>(this IEnumerable<TSource> source, int index) {
         return source.ElementAtOrDefault(source.Count() - 1 - index);

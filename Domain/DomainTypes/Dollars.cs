@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes;
+﻿using Domain.DomainTypes.Primitives;
+
+namespace Domain.DomainTypes;
 
 public record Dollars(UnsignedIntDec9 Value) {
     public static Dollars Of(IntString value) {

@@ -29,7 +29,7 @@ public static class UnsignedIntDec9Methods {
         return number.Digits.ElementAtCountedBackwardsOrDefault(7, '0');
     }
     public static char GetHundredMillionssDigit(this UnsignedIntDec9 number) {
-        return number.Digits.Reverse().ElementAtCountedBackwardsOrDefault(8, '0');
+        return number.Digits.ElementAtCountedBackwardsOrDefault(8, '0');
     }
 
     public static UnsignedIntDec3 GetMillionsHundredPart(this UnsignedIntDec9 number) {

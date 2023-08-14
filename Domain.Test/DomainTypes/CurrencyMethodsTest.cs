@@ -31,7 +31,7 @@ public class CurrencyMethodsTest {
     [TestCase("200300", "two hundred thousand three hundred dollars")]
     public void OnIntString_GetWordRepresentationOfDollars_WhenGivenValidNumber_ThenReturnDollarValueAsString(string input, string expectedOutput) {
 
-        var result = Dollars.Of(IntString.Of(input)).GetWordRepresentationOfDollars();
+        var result = Dollars.Of(IntString.Of(input)).GetWordRepresentation();
 
         Assert.That(result, Is.EqualTo(expectedOutput));
     }

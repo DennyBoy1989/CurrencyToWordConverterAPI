@@ -5,7 +5,7 @@ namespace Domain.Methods;
 
 public static class DollarsMethods {
 
-    public static string GetWordRepresentationOfDollars(this Dollars dollars) {
+    public static string GetWordRepresentation(this Dollars dollars) {
 
         var numberAsWords = dollars.Value.GetWordRepresentation();
         if (dollars.Value.IntValue == 1) {

@@ -5,7 +5,7 @@ namespace Domain.Methods;
 
 public static class CentsMethods {
 
-    public static string GetWordRepresentationOfCents(this Cents cents) {
+    public static string GetWordRepresentation(this Cents cents) {
 
         var numberAsWords = cents.Value.GetWordRepresentation();
         if (cents.Value.IntValue == 1) {

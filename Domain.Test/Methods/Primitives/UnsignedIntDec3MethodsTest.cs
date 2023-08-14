@@ -47,7 +47,7 @@ public class UnsignedIntDec3MethodsTest {
     }
 
     [Test]
-    public void OnUnsignedIntDec3_GetHundredsDigit_WhenNumberGreaterThenNinetynine_ThenReturnTensDigit() {
+    public void OnUnsignedIntDec3_GetHundredsDigit_WhenNumberGreaterThenNinetynine_ThenReturnHundredsDigit() {
 
         var number = UnsignedIntDec3.Of(IntString.Of("245"));
 

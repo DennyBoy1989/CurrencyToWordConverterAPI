@@ -33,13 +33,13 @@ public static class UnsignedIntDec9Methods {
     }
 
     public static UnsignedIntDec3 GetMillionsHundredPart(this UnsignedIntDec9 number) {
-        return UnsignedIntDec3.Of(IntString.Of(number.Digits.TakeCountedBackwards(new Range(6, 9))));
+        return UnsignedIntDec3.Of(UnsignedIntString.Of(number.Digits.TakeCountedBackwards(new Range(6, 9))));
     }
     public static UnsignedIntDec3 GetThousandsHundredPart(this UnsignedIntDec9 number) {
-        return UnsignedIntDec3.Of(IntString.Of(number.Digits.TakeCountedBackwards(new Range(3, 6))));
+        return UnsignedIntDec3.Of(UnsignedIntString.Of(number.Digits.TakeCountedBackwards(new Range(3, 6))));
     }
     public static UnsignedIntDec3 GetHundredPart(this UnsignedIntDec9 number) {
-        return UnsignedIntDec3.Of(IntString.Of(number.Digits.TakeCountedBackwards(new Range(0, 3))));
+        return UnsignedIntDec3.Of(UnsignedIntString.Of(number.Digits.TakeCountedBackwards(new Range(0, 3))));
     }
 
 

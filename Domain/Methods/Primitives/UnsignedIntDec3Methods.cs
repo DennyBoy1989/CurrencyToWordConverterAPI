@@ -15,7 +15,7 @@ public static class UnsignedIntDec3Methods {
     }
 
     public static UnsignedIntDec2 GetTensPart(this UnsignedIntDec3 number) {
-        return UnsignedIntDec2.Of(IntString.Of(number.Digits.TakeCountedBackwards(new Range(0, 2))));
+        return UnsignedIntDec2.Of(UnsignedIntString.Of(number.Digits.TakeCountedBackwards(new Range(0, 2))));
     }
 
     public static string GetWordRepresentation(this UnsignedIntDec3 number) {

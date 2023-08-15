@@ -7,7 +7,7 @@ namespace Domain.Workflows;
 public class CurrencyWorkflows {
 
     public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currencyString) {
-        var currencyDecimalString = DecimalString.Of(currencyString, 2);
+        var currencyDecimalString = CurrencyString.Of(currencyString);
         var currency = Currency.Of(currencyDecimalString);
         return currency.GetWordRepresentation();
     }

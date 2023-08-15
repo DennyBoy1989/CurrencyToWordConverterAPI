@@ -1,4 +1,6 @@
-﻿namespace Domain.DomainTypes.Primitives;
+﻿using Domain.DomainErrors;
+
+namespace Domain.DomainTypes.Primitives;
 
 public class UnsignedIntDec9 {
 
@@ -10,14 +12,10 @@ public class UnsignedIntDec9 {
         Digits = digits;
     }
 
-    public static UnsignedIntDec9 Of(IntString value) {
-
-        if (value.IntValue < 0) {
-            throw new ArgumentException();
-        }
+    public static UnsignedIntDec9 Of(UnsignedIntString value) {
 
         if (value.IntValue > 999999999) {
-            throw new ArgumentException();
+            throw new InvalidRangeError($"Number string {value.IntValue} is bigger then 999999999");
         }
 
         return new UnsignedIntDec9(value.IntValue, value.Digits);

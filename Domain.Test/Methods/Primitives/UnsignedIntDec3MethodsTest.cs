@@ -9,7 +9,7 @@ public class UnsignedIntDec3MethodsTest {
     [Test]
     public void OnUnsignedIntDec3_GetUnitsDigit_ThenReturnUnitsDigit() {
 
-        var number = UnsignedIntDec3.Of(IntString.Of("12"));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of("12"));
 
 
         var result = number.GetUnitsDigit();
@@ -19,7 +19,7 @@ public class UnsignedIntDec3MethodsTest {
     [Test]
     public void OnUnsignedIntDec3_GetTensDigit_WhenNumberSmallerThenTen_ThenReturnZero() {
 
-        var number = UnsignedIntDec3.Of(IntString.Of("9"));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of("9"));
 
 
         var result = number.GetTensDigit();
@@ -29,7 +29,7 @@ public class UnsignedIntDec3MethodsTest {
     [Test]
     public void OnUnsignedIntDec3_GetTensDigit_WhenNumberGreaterThenTen_ThenReturnTensDigit() {
 
-        var number = UnsignedIntDec3.Of(IntString.Of("37"));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of("37"));
 
 
         var result = number.GetTensDigit();
@@ -39,7 +39,7 @@ public class UnsignedIntDec3MethodsTest {
     [Test]
     public void OnUnsignedIntDec3_GetHundredsDigit_WhenNumberSmallerThenOnehundred_ThenReturnZero() {
 
-        var number = UnsignedIntDec3.Of(IntString.Of("64"));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of("64"));
 
 
         var result = number.GetHundredsDigit();
@@ -49,7 +49,7 @@ public class UnsignedIntDec3MethodsTest {
     [Test]
     public void OnUnsignedIntDec3_GetHundredsDigit_WhenNumberGreaterThenNinetynine_ThenReturnHundredsDigit() {
 
-        var number = UnsignedIntDec3.Of(IntString.Of("245"));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of("245"));
 
 
         var result = number.GetHundredsDigit();
@@ -67,7 +67,7 @@ public class UnsignedIntDec3MethodsTest {
     [TestCase("860", "eight hundred sixty")]
     public void OnUnsignedIntDec3_GetWordRepresentation_ThenReturnWordRepresentationOfTwoDigitNumber(string input, string expectedWordRepresentation) {
 
-        var number = UnsignedIntDec3.Of(IntString.Of(input));
+        var number = UnsignedIntDec3.Of(UnsignedIntString.Of(input));
 
 
         var result = number.GetWordRepresentation();

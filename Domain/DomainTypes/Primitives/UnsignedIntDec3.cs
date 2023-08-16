@@ -4,10 +4,10 @@ namespace Domain.DomainTypes.Primitives;
 
 public class UnsignedIntDec3 {
 
-    public int IntValue { get; }
+    public uint IntValue { get; }
     public IEnumerable<char> Digits { get; }
 
-    private UnsignedIntDec3(int intValue, IEnumerable<char> digits) {
+    private UnsignedIntDec3(uint intValue, IEnumerable<char> digits) {
         IntValue = intValue;
         Digits = digits;
     }

@@ -6,9 +6,9 @@ namespace Domain.DomainTypes.Primitives;
 public class UnsignedIntString {
 
     public IEnumerable<char> Digits { get; }
-    public int IntValue { get; }
+    public uint IntValue { get; }
 
-    private UnsignedIntString(IEnumerable<char> digits, int intValue) {
+    private UnsignedIntString(IEnumerable<char> digits, uint intValue) {
         Digits = digits;
         IntValue = intValue;
     }
@@ -25,17 +25,17 @@ public class UnsignedIntString {
             return new UnsignedIntString("0", 0);
         }
 
-        int intValue;
+        uint intValue;
         try {
-            intValue = int.Parse(sanitizedStringValue);
+            
+            intValue = uint.Parse(sanitizedStringValue);
 
+        }
+        catch (OverflowException ex) {
+            throw new InvalidRangeError($"Number string {digitString} is either too large or too small for an unsigned int value", ex);
         }
         catch(Exception ex) {
             throw new InvalidNumberNotationError($"Could not parse {digitString} to an int value", ex);
-        }
-
-        if (intValue < 0) {
-            throw new InvalidRangeError($"Number string {digitString} is smaller then zero");
         }
 
         return new UnsignedIntString(sanitizedStringValue, intValue);

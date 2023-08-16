@@ -1,4 +1,8 @@
-﻿using Domain.Workflows;
+﻿using Castle.Core.Logging;
+using Domain.DomainErrors;
+using Domain.Workflows;
+using FakeItEasy;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +18,7 @@ namespace Domain.Test.Workflows {
         
         [SetUp]
         public void SetUp() {
-            currencyWorkflows = new CurrencyWorkflows();
+            currencyWorkflows = new CurrencyWorkflows(A.Fake<ILogger<CurrencyWorkflows>>());
         }
 
 
@@ -43,11 +47,17 @@ namespace Domain.Test.Workflows {
 
         [TestCase("Foobar")]
         [TestCase("00/99")]
+        public void GetCurrencyWordRepresentation_WhenGivenInvalidNumber_ThenThrowInvalidNumberNotationError(string input) {
+
+            Assert.That(()=> currencyWorkflows.GetCurrencyWordRepresentation(input), Throws.Exception.InstanceOf<InvalidNumberNotationError>());
+        }
+
+
         [TestCase("0,9999")]
         [TestCase("9 999 999 999,99")]
-        public void GetCurrencyWordRepresentation_WhenGivenInvalidNumber_ThenThrowException(string input) {
+        public void GetCurrencyWordRepresentation_WhenGivenInvalidNumber_ThenThrowInvalidRangeError(string input) {
 
-            Assert.That(()=> currencyWorkflows.GetCurrencyWordRepresentation(input), Throws.Exception.InstanceOf<Exception>());
+            Assert.That(() => currencyWorkflows.GetCurrencyWordRepresentation(input), Throws.Exception.InstanceOf<InvalidRangeError>());
         }
     }
 }

@@ -1,5 +1,7 @@
+using Domain.DomainErrors;
 using Domain.Workflows;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace WebApplication1.Controllers {
     [ApiController]
@@ -15,14 +17,15 @@ namespace WebApplication1.Controllers {
         }
 
         [HttpGet("{number}", Name = "GetWordRepresentation")]
-        public IActionResult Get([FromRoute] string number) {
+        public IActionResult GetWordRepresentation([FromRoute] string number) {
             try {
                 var result = currencyWorkflows.GetCurrencyWordRepresentation(number);
                 return Ok(result);
             }
             catch (Exception ex) {
                 return ex switch {
-                    //RequestedResourceNotFoundError => NotFound(ex.Message),
+                    InvalidNumberNotationError => BadRequest(ex.Message),
+                    InvalidRangeError => BadRequest(ex.Message),
                     _ => Call(() => {
                         logger.LogError(ex, $"Unknown Error has occured");
                         return StatusCode(StatusCodes.Status500InternalServerError, $"Unknown Error has occured");

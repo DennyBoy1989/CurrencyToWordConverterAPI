@@ -55,7 +55,7 @@ namespace Domain.Test.Workflows {
 
         [TestCase("0,9999")]
         [TestCase("9 999 999 999,99")]
-        public void GetCurrencyWordRepresentation_WhenGivenInvalidNumber_ThenThrowInvalidRangeError(string input) {
+        public void GetCurrencyWordRepresentation_WhenGivenTooBigNumber_ThenThrowInvalidRangeError(string input) {
 
             Assert.That(() => currencyWorkflows.GetCurrencyWordRepresentation(input), Throws.Exception.InstanceOf<InvalidRangeError>());
         }

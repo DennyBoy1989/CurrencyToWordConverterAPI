@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain.Test\Domain.Test.csproj" />
-    <ProjectReference Include="..\WebApplication1\Api.csproj" />
+    <ProjectReference Include="..\Api\Api.csproj" />
   </ItemGroup>
 
 </Project>

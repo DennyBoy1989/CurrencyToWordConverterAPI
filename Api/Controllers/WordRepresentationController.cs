@@ -4,7 +4,7 @@ using Domain.Workflows;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using static Domain.Methods.Primitives.FuncMethods;
-namespace WebApplication1.Controllers;
+namespace Api.Controllers;
 
 /// <summary>
 /// Controller clas for "/wordrepresentation" API endpoints

@@ -1,4 +1,5 @@
-﻿using Castle.Core.Logging;
+﻿using Api.Controllers;
+using Castle.Core.Logging;
 using Domain.DomainErrors;
 using Domain.DomainTypes;
 using Domain.Workflows;
@@ -6,7 +7,6 @@ using FakeItEasy;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebApplication1.Controllers;
 
 namespace Api.Test.Controllers;
 

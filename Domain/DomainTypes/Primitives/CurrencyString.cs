@@ -3,6 +3,9 @@ using Domain.Methods.Primitives;
 
 namespace Domain.DomainTypes.Primitives;
 
+/// <summary>
+/// Primitiv domain object, that represents a string, that contains a decimal number with at least two decimal places.
+/// </summary>
 public class CurrencyString {
 
     public UnsignedIntString BeforePointValue { get; }
@@ -13,6 +16,12 @@ public class CurrencyString {
         AfterPointValue = afterPointValue;
     }
 
+
+    /// <summary>
+    /// Factory method to instantiate a new <see cref="CurrencyString"/>  by a given string. Throws domain errors, when the string is not valid.
+    /// </summary>
+    /// <exception cref="InvalidNumberNotationError"></exception>
+    /// <exception cref="InvalidRangeError"></exception>
     public static CurrencyString Of(string value) {
 
         if (!value.Contains(',')) {

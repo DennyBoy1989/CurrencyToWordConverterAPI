@@ -3,6 +3,9 @@ using Domain.Methods.Primitives;
 
 namespace Domain.DomainTypes.Primitives;
 
+/// <summary>
+/// Primitiv domain object, that represents a number with the range 0 to 4294967295.
+/// </summary>
 public class UnsignedIntString {
 
     public IEnumerable<char> Digits { get; }
@@ -13,6 +16,9 @@ public class UnsignedIntString {
         IntValue = intValue;
     }
 
+    /// <summary>
+    /// Factory method to instantiate a new <see cref="UnsignedIntString"/> by a given string. Throws domain errors, when the given string exceeds the ranges or has an invalid format.
+    /// </summary>
     /// <exception cref="InvalidNumberNotationError"></exception>
     /// <exception cref="InvalidRangeError"></exception>
     public static UnsignedIntString Of(IEnumerable<char> digits) {
@@ -25,11 +31,9 @@ public class UnsignedIntString {
             return new UnsignedIntString("0", 0);
         }
 
-        uint intValue;
         try {
-            
-            intValue = uint.Parse(sanitizedStringValue);
-
+            uint intValue = uint.Parse(sanitizedStringValue);
+            return new UnsignedIntString(sanitizedStringValue, intValue);
         }
         catch (OverflowException ex) {
             throw new InvalidRangeError($"Number string {digitString} is either too large or too small for an unsigned int value", ex);
@@ -37,7 +41,5 @@ public class UnsignedIntString {
         catch(Exception ex) {
             throw new InvalidNumberNotationError($"Could not parse {digitString} to an int value", ex);
         }
-
-        return new UnsignedIntString(sanitizedStringValue, intValue);
     }
 }

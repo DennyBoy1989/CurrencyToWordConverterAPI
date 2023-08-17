@@ -1,7 +1,7 @@
 ﻿namespace Domain.DomainErrors;
 
 /// <summary>
-/// Error, that indicates that a given number string is bigger, then the supported range.
+/// Error, that indicates that a given number string is bigger or smaller than the supported range.
 /// </summary>
 public class InvalidRangeError : Exception {
 

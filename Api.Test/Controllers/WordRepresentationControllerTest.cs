@@ -3,6 +3,7 @@ using Domain.DomainErrors;
 using Domain.DomainTypes;
 using Domain.Workflows;
 using FakeItEasy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Controllers;
@@ -31,7 +32,7 @@ public class WordRepresentationControllerTest {
     }
 
     [Test]
-    public void GetWordRepresentation_WhenGivenInvalidNumberString_ThenThrowInvalidNumberNotationError() {
+    public void GetWordRepresentation_WhenGivenInvalidNumberString_ThenReturnBadRequestObjectResult() {
 
         var result = wordRepresentationController.GetWordRepresentation("1234-56") as BadRequestObjectResult;
         Assert.That(result, Is.Not.Null);
@@ -39,9 +40,17 @@ public class WordRepresentationControllerTest {
 
 
     [Test]
-    public void GetWordRepresentation_WhenGivenTooBigNumberString_ThenThrowInvalidRangeError() {
+    public void GetWordRepresentation_WhenGivenTooBigNumberString_ThenReturnBadRequestObjectResult() {
 
         var result = wordRepresentationController.GetWordRepresentation("1234,56789") as BadRequestObjectResult;
         Assert.That(result, Is.Not.Null);
+    }
+
+    [Test]
+    public void GetWordRepresentation_WhenGivenTooBigNumberString_ThenReturnObjectResultWithStatusCode500() {
+
+        var result = wordRepresentationController.GetWordRepresentation(null!) as ObjectResult;
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.StatusCode, Is.EqualTo(StatusCodes.Status500InternalServerError));
     }
 }

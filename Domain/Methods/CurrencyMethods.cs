@@ -2,8 +2,14 @@
 
 namespace Domain.Methods;
 
+/// <summary>
+/// Extensions methods for <see cref="Currency"/> objects.
+/// </summary>
 public static class CurrencyMethods {
 
+    /// <summary>
+    /// Gets the english word representation of a <see cref="Currency"/> object.
+    /// </summary>
     public static CurrencyWordRepresentation GetWordRepresentation(this Currency currency) {
 
         string dollarString = currency.Dollars.GetWordRepresentation();

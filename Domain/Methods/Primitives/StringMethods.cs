@@ -1,5 +1,8 @@
 ﻿namespace Domain.Methods.Primitives;
 
+/// <summary>
+/// Extensions methods for <see cref="string"/> objects.
+/// </summary>
 public static class StringMethods {
 
     /// <summary>

@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Domain.Workflows;
 
+/// <summary>
+/// Object that represents domain workflows for currency in the context of the CurrencyToWordConverterAPI
+/// </summary>
 public class CurrencyWorkflows {
 
     private ILogger<CurrencyWorkflows> logger;
@@ -13,6 +16,11 @@ public class CurrencyWorkflows {
         this.logger = logger;
     }
 
+    /// <summary>
+    /// The workflow for validating a given string that contain a currency and calculating the english word representation of that string.
+    /// </summary>
+    /// <exception cref="DomainErrors.InvalidNumberNotationError"></exception>
+    /// <exception cref="DomainErrors.InvalidRangeError"></exception>
     public CurrencyWordRepresentation GetCurrencyWordRepresentation(string currencyString) {
 
         logger.LogTrace($"Starting to generate word representation for currency string '{currencyString}'");

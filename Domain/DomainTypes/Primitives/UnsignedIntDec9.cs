@@ -2,6 +2,9 @@
 
 namespace Domain.DomainTypes.Primitives;
 
+/// <summary>
+/// Primitiv domain object, that represents a number with the range 0 to 999999999.
+/// </summary>
 public class UnsignedIntDec9 {
 
     public uint IntValue { get; }
@@ -12,6 +15,10 @@ public class UnsignedIntDec9 {
         Digits = digits;
     }
 
+    /// <summary>
+    /// Factory method to instantiate a new <see cref="UnsignedIntDec9"/> by a given <see cref="UnsignedIntString"/> . Throws domain errors, when the given string exceeds the ranges.
+    /// </summary>
+    /// <exception cref="InvalidRangeError"></exception>
     public static UnsignedIntDec9 Of(UnsignedIntString value) {
 
         if (value.IntValue > 999999999) {
